@@ -1,0 +1,805 @@
+ c question
+
+1..1. Write a function to check the grade of a student based
+ on the score:
+ ● 90-100: A
+ ● 80-89: B
+ ● 70-79: C
+ ● 60-69: D
+ ● Below 60: F
+
+code::
+#include <stdio.h>
+
+int main() {
+int score;
+printf("enter your marks :");
+scanf("%d",&score);
+if(score>=90 && score<=100){
+    printf("your gred is A");
+}else if(score<90 && score>=80){
+    printf("your gred is B");
+} else if(score<80 && score>=70){
+    printf("your gred is C");
+}else if(score<70 && score>=60){
+    printf("your gred is D");
+}else{
+    printf("you are fail");
+}
+    return 0;
+}
+
+2. 2. Write a function to determine whether a given number is
+ positive, negative, or zero.
+
+code::
+#include <stdio.h>
+
+int main() {
+  int num;
+printf("enter the num");
+scanf("%d",&num);
+if(num>0){
+    printf("num is the positive");
+}
+else if(num==0){
+    printf("your num is zero");
+}else{
+    printf("num is negative");
+}
+    return 0;
+}
+
+3. 3. Write a function that takes three sides of a triangle and
+ checks whether the triangle is equilateral, isosceles, or
+ scalene.
+
+code::
+#include <stdio.h>
+
+int main() {
+ int s1;
+int s2;
+int s3;
+printf("enter three sides of tringls :");
+scanf("%d %d %d",&s1,&s2,&s3);
+if(s1==s2==s3){
+    printf("tringle is euilateral");
+}
+else if(s1==s2 || s2==s3 || s3==s1){
+    printf("your tringle is isoscales");
+}
+else{
+    printf("your tringle is scalene");
+}
+    return 0;
+}
+
+4. Write a function to check whether a given character is a
+ vowel or consonant.
+
+code::
+#include <stdio.h>
+int main(){
+char ch='a';
+if(ch=='a' || ch=='e' || ch=='o' || ch=='u' || ch=='i')
+{printf("vowel");
+}
+else{
+ printf("consonant");
+}
+return 0;
+
+5.Write a function that checks if a person is eligible to
+ vote. The person is eligible if they are 18 years old or
+ older.
+
+code::
+
+#include <stdio.h>
+int main(){
+int age ;
+printf("enter the age: ");
+scanf("%d",&age);
+if(age>18){
+printf("eligible for vote");
+}
+else{
+printf("not eligible");
+}
+return 0;
+}
+
+6.Write a function that checks if a username and
+ password match predefined values. If the username is
+ "admin" and the password is "1234", print "Login
+ successful"; otherwise, print "Login failed."
+
+code::
+#include <stdio.h>
+
+int main() {
+char id[30];
+int pass;
+char nid[]="admin";
+int npass=1234;
+printf("enter id name\n");
+scanf("%s",&id);
+printf("enter your pass:\n");
+scanf("%d",&pass);
+if(strcmp(id, nid) == 0 && strcmp(pass,npass) ==0){
+    printf("login sucssesfully");
+}else{
+    printf("wrong");
+}
+    return 0;
+}
+
+7. Write a function that simulates a traffic light system. The
+ function should take the current light color (red, yellow,
+ green) as input and print the corresponding action:
+ ● "red" → "Stop"
+ ● "yellow" → "Slow down"
+ ● "green" → "Go"
+
+code::
+#include <stdio.h>
+#include <string.h>
+int main() {
+char color[100];
+printf("enter color:");
+scanf("%s",&color);
+if  (strcmp(color, "red") == 0){
+    printf("stop");
+}
+else if  (strcmp(color, "yellow") == 0){
+    printf("slow down");
+}
+else if (strcmp(color, "green") == 0){
+    printf("go");
+}
+else{
+    printf("error");
+}
+    return 0;
+}
+
+8. Find the Average of an Array.
+
+code::
+#include <stdio.h>
+#include <string.h>
+int main() {
+int arr[]={1,2,3,4,5};
+int avg=0;
+int len=sizeof(arr)/sizeof(arr[1]);
+for(int i=0;i<len;i++){
+    avg=avg+arr[i];
+}
+avg=avg/len;
+printf("%d",avg);
+
+    return 0;
+}
+
+9. Sort an Array in Ascending Order Example: Input:
+ nums = [4,2,8,5,1]; Output: nums =
+ [1,2,4,5,8].
+
+code::
+#include <stdio.h>
+#include <string.h>
+int main() {
+int arr[]={4,2,8,5,1};
+int temp;
+int len=sizeof(arr)/sizeof(arr[0]);
+for(int i=0;i<len;i++){
+    for(int j=i;j<len;j++){
+        if(arr[i]>arr[j]){
+            temp=arr[j];
+            arr[j]=arr[i];
+            arr[i]=temp;
+        }
+    }
+}
+for(int i=0;i<len;i++){
+    printf("%d\n",arr[i]);
+}
+    return 0;
+}
+
+10. 10. Given an array of integers, count how
+ many numbers are even and how many are odd.
+ Example
+ ● Input: [1, 2, 3, 4, 5]
+ ● Output: Even: 2, Odd: 3
+code::
+#include <stdio.h>
+
+int main() {
+     int arr[]={1,2,3,4,5};
+     
+     int len=sizeof(arr)/sizeof(arr[0]);
+     int even =0;
+     int odd =0;
+     int i;
+     for(i=0;i<len;i++){
+         if(arr[i]%2==0){
+             even=even+1;
+         }
+         else{
+             odd=odd+1;
+         }
+     }
+     printf("even %d",even);
+     printf("odd %d",odd);
+}
+11. Remove duplicate elements from the array arr =
+ [1, 2, 2, 3, 4, 4, 5]andprint theupdated array.
+
+code::
+#include <stdio.h>
+#include <string.h>
+int main(){
+    int arr[]={1,2,2,3,4,4,5};
+    int len=sizeof(arr)/sizeof(arr[0]);
+    int newarr[len];
+    int newlen=0;
+    for(int i=0;i<len;i++){
+        int duplicate=0;
+        
+        for(int j=0;j<newlen;j++){
+            if(arr[i]==newarr[j]){
+                duplicate=1;
+            }
+        }
+        if(!duplicate){
+            newarr[newlen]=arr[i];
+            newlen++;
+        }
+    }
+    printf("update arr: ");
+    for(int i=0;i<newlen;i++){
+        printf("%d",newarr[i]);
+    }
+    printf("\n");
+    return 0;
+}
+
+12. Add the number 6 to the end of the array arr = [1,
+ 2, 3, 4, 5]andprint the updated array.
+
+code::
+#include <stdio.h>
+
+int main() {
+    int arr[7]={1,2,3,4,5};
+    arr[5]=6;
+    int len=sizeof(arr)/sizeof(arr[1]);
+    for(int i=0; i<len;i++){
+    printf("%d",arr[i]);
+    }
+    return 0;
+}
+
+13.Check if the array arr = [1, 2, 3, 4, 5]
+ contains the number 3 and print true or false.
+
+code::
+
+#include <stdio.h>
+int main() {
+  int arr[]={1,2,4,5};
+  int find=0;
+  int len=sizeof(arr)/sizeof(arr[0]);
+  for(int i=0;i<len;i++){
+      if(arr[i]==3){
+         find=1;
+      }
+  }
+  if(find==1){
+      printf("true");
+  }
+  else{printf("false");}
+  return 0;
+}
+14.Add Element to the Beginning of an Array Example:
+ Input: nums = [1, 2, 3, 4]; Output: nums =
+ [0,1,2,3,4].
+
+code::
+#include <stdio.h>
+
+int main() {
+    int arr[7]={1,2,3,4,5};
+    int narr[0]=6;
+    int len=sizeof(arr)/sizeof(arr[1]);
+    for(int i=0; i<len;i++){
+    narr[i+1]=arr[i];
+    printf("%d",narr);
+    }
+    return 0;
+}
+15.Remove the Last element Input: nums = [1, 2,
+ 3, 4,5]; Output: nums = [1,2,3,4].
+code::
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+int arr[]={1,2,3,4,5,6};
+
+int len=sizeof(arr)/sizeof(arr[1]);
+for(int i=0;i<len-1;i++){
+    printf("%d",arr[i]);
+}
+    return 0;
+}
+
+16.Check if all the elements in arr = [3, 5, 9, 1,
+ 7] are positive numbers, and print true or false.
+
+code::
+#include <stdio.h>
+#include <string.h>
+int main() {
+int arr[]={1,2,3,4,5,6};
+int count=0;
+int len=sizeof(arr)/sizeof(arr[1]);
+for(int i=0;i<len;i++){
+    if(arr[i]<0){
+        count++;
+    }
+        
+    }
+if(count!=0){
+    printf("false");
+}
+else{
+    printf("true");
+}
+
+    return 0;
+}
+
+17.Count how many positive and negative numbers are in
+ arr = [1,-2, 3,-4, 5,-6]andprint theresult.
+code::
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+int arr[]={1,2,3,4,5,6};
+int count=0;
+int sum=0;
+int len=sizeof(arr)/sizeof(arr[1]);
+for(int i=0;i<len;i++){
+    if(arr[i]<0){
+        count++;
+    }else{sum++;}
+}
+printf("negtive numn is %d\n",count);
+printf("positive  numn is %d",sum);
+    return 0;
+}
+18.Print all elements that are at even indexes in the array
+ arr = [10, 20, 30, 40, 50].
+code::
+#include <stdio.h>
+#include <string.h>
+int main() {
+int arr[]={1,2,3,4,5,6};
+
+int len=sizeof(arr)/sizeof(arr[1]);
+for(int i=2;i<len;i+=2){
+    printf("%d",arr[i]);
+}
+    return 0;
+}
+19.Check if the array arr = [1, 2, 3, 4, 5] is
+ sorted in ascending order, and print true or false.
+code:
+#include <stdio.h>
+
+int main(){
+    int arr[]={1,2,3,5,4};
+    int len=sizeof(arr)/sizeof(arr[0]);
+    
+    int count=0;
+    for(int i=0;i<len;i++){
+        if(arr[i]<=arr[i-1]){
+            count=count+1;
+        }
+    }
+    if(count==0){
+        printf("true");
+    }
+    else{
+        printf("no");
+    }
+    return 0;
+}
+
+20. Find and print the difference between the maximum
+ and minimum elements in arr = [80, 30, 70, 50,
+ 20]
+
+code:;
+#include <stdio.h>
+
+int main(){
+    int arr[]={3,4,5,6,7};
+    
+    int min=arr[0];
+    int max=arr[0];
+    int len=sizeof(arr)/sizeof(arr[0]);
+    int abc;
+    for(int i=0;i<len;i++){
+        if(min>arr[i]){
+            min=arr[i];
+        }
+        if(max<arr[i]){
+            max=arr[i];
+        }
+    }
+     
+     abc=max-min;
+    printf("%d",abc);
+    
+    return 0;
+}
+int diff=arr[len]-arr[0];
+printf("%d",diff);
+    return 0;
+}
+
+21.Write a program to convert a given string to
+ uppercase.Example: Input: "hello", Output: "HELLO".
+
+code::
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+    char str[100];
+    
+    printf("enter the string: ");
+    scanf("%s",&str);
+    
+    for(int i=0;str[i]!='\0';i++){
+        if(str[i]>='a' && str[i]<='z'){
+            str[i]=str[i]-32;
+        }
+    }
+    printf("%s",str);
+    return 0;
+}
+
+
+22.Write a program to find the length of a
+ given string.
+
+code::
+#include <stdio.h>
+// #include <string.h>
+int main(){
+char str[100];
+ int len=0;
+ 
+ printf("enter the string: ");
+ scanf("%s",&str);
+ 
+ while(str[len]!='\0'){
+     len=len+1; }
+     printf("%d",len);
+     return 0;
+     }
+
+23.Write a program to concatenate two
+ given strings. Example: Input: ("hello", "
+ world"), Output: "hello world".
+code::
+#include <stdio.h>
+int main(){
+  char str1[100];
+  char str2[100];
+  char str3[100];
+  
+  printf("enter the string1: ");
+  scanf("%s",&str1);
+  printf("enter the string2: ");
+  scanf("%s",&str2);
+  int len1=0;
+  int len2=0;
+  
+  while(str1[len1]!=0){
+      len1++;
+  };
+  while(str2[len2]!=0){
+      len2++;
+  };
+  
+  for(int i=0;i<len1;i++){
+      str3[i]=str1[i];
+  }
+  for(int j=0;j<len2;j++){
+      int q=len1+j;
+      str3[q]=str2[j];
+  }
+  printf("%s\n ",str3);
+  return 0;
+  }
+24.Write a program to remove whitespace
+ from both ends of a string.Example: Input:
+ " hello ", Output: "hello".
+code::
+
+
+25.Write a program to split a string into
+ an array of words.
+code::
+
+26.Write a program to check if a string
+ ends with a specific character.Example:
+ Input: ("codinggita", "a"), Output: true.
+
+code::
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[100]; 
+    printf("Enter a string: ");
+    scanf(" %s", & str); 
+    char str2; 
+    printf("Enter a letter: ");
+    scanf(" %c", & str2); 
+    int length = 0 ;
+    while (str[length] != '\0') {  
+        length++;
+    };
+    int y = length-1;
+    if(str[y]==str2){
+        printf("true");
+    }
+    else{
+        printf("false");
+    }
+    return 0;
+}
+
+27. Write a program to extract the file
+ extension from a given filename.Example:
+ Input: "document.pdf", Output: "pdf".
+code::
+#include <stdio.h>
+
+int main() {
+    char filename[100];
+    char extension[20];
+    int i = 0, j = 0;
+    int dotIndex = -1; 
+    printf("Enter the filename: ");
+    scanf("%s", filename);
+    while (filename[i] != '\0') {
+        if (filename[i] == '.') {
+            dotIndex = i;
+        }
+        i++;
+    }
+     if (dotIndex != -1) {
+        for (j = 0; filename[dotIndex + 1 + j] != '\0'; j++) {
+            extension[j] = filename[dotIndex + 1 + j];
+        }
+        extension[j] = '\0'; 
+        printf("File extension: %s\n", extension);
+    } else {
+        printf("No file extension found.\n");
+    }
+
+    return 0;
+}
+28.Write a function that takes two numbers
+ and prints the largest one.
+code::
+#include <stdio.h>
+
+int main() {
+    int num1;
+    int num2;
+    printf("Enter num1: ");
+    scanf("%d", & num1);
+    printf("Enter num2: ");
+    scanf("%d", & num2);
+    if(num1>num2){
+        printf("the largest no. is : %d",num1);
+    }else if(num2>num1){
+        printf("the largest no. is : %d",num2);
+    }else{
+         printf("both are equal");
+    }
+    return 0;
+}
+29..Write a program to find all pairs in an
+ array whose sum is equal to a given number
+code::
+#include <stdio.h>
+
+int main() {
+    int nums[100]; 
+    int n;          
+    int target;      
+    int i, j;
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+    printf("Enter the elements of the array: ");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &nums[i]);
+    }
+    printf("Enter the target sum: ");
+    scanf("%d", &target);
+
+    printf("Output pairs of indices:\n");
+    int found = 0;  
+    for (i = 0; i < n; i++) {
+        for (j = i + 1; j < n; j++) {
+            if (nums[i] + nums[j] == target) {
+                printf("[%d, %d]\n", i, j); // Print the indices of the pair
+                found = 1;
+            }
+        }
+    }
+
+    if (!found) {
+        printf("No pairs found that sum to %d.\n", target);
+    }
+
+    return 0;
+}
+30.Write a program to input an integer 'n' and print the
+ sum of all its even digits and the sum of all its odd digits
+ separately. Example : Input: 'n' = 132456, Output: 12, 9
+ Explanation:
+ The sum of even digits = 2 + 4 + 6 = 12
+ The sum of odd digits = 1 + 3 + 5 = 9
+code::
+#include <stdio.h>
+
+int main() {
+    int n;                // Input integer
+    int evenSum = 0;     // Sum of even digits
+    int oddSum = 0;      // Sum of odd digits
+
+    // Input the integer
+    printf("Enter an integer: ");
+    scanf("%d", &n);
+
+    // Process each digit
+    while (n != 0) {
+        int digit = n % 10; // Get the last digit
+
+        if (digit % 2 == 0) {
+            evenSum += digit; // Add to evenSum if digit is even
+        } else {
+            oddSum += digit;  // Add to oddSum if digit is odd
+        }
+
+        n /= 10; // Remove the last digit
+    }
+
+    // Output the sums
+    printf("Sum of even digits: %d\n", evenSum);
+    printf("Sum of odd digits: %d\n", oddSum);
+
+    return 0;
+}
+31. Write a program to repeat a string a specified number of
+ times.Example: Input: ("hello", 3), Output:
+ "hellohellohello".
+code::
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[100]; 
+    int n;               
+    char result[1000];    
+    int i, j;
+
+    printf("Enter a string: ");
+    scanf("%s", str);
+    printf("Enter the number of times to repeat: ");
+    scanf("%d", &n);
+    result[0] = '\0'; 
+    for (i = 0; i < n; i++) {
+        for (j = 0; str[j] != '\0'; j++) {
+            result[i * strlen(str) + j] = str[j]; 
+        }
+    }
+    result[n * strlen(str)] = '\0';
+    printf("Output: %s\n", result);
+
+    return 0;
+}
+
+32.Write a program that categorizes a
+ person’s age group based on the given age:
+ ● Less than 13: "Child"
+ ● Between 13 and 19: "Teenager"
+ ● Between 20 and 59: "Adult"
+ ● 60 and above: "Senior"
+code::
+#include<stdio.h>
+int main(){   
+    int age ;
+      printf("Please enter your Age: ");
+        scanf("%d", &  age);
+    if(age<13){
+            printf("CHILD");
+    }else if (age<20 && age>=13){
+        printf("TEENAGER");
+    }else if (age<60 && age>=20){
+        printf("ADULT");
+    }else if (age>=60){
+        printf("SENIOR");
+    }else{
+        printf("invalid Input");
+    };
+    return 0;
+}
+33.Write a program that takes a year as
+ input and checks whether it is a century
+ year (a year divisible by 100).
+code::
+#include<stdio.h>
+int main(){   
+    int year ;
+      printf("Please enter your year: ");
+        scanf("%d", &  year);
+    if(year%100==0){
+            printf("yes it is centurian year");
+    }else{
+        printf("no it is not centurian year");
+    };
+    return 0;
+}
+34.Access and print the first and last
+ element of the array arr = [10, 20, 30, 40,
+ 50].
+code::
+#include <stdio.h>
+
+int main() {
+    int arr[] = {10, 20, 30, 40, 50};
+    int length = sizeof(arr) / sizeof(arr[0]); 
+    printf("Array elements: ");
+    for (int i = 0; i < length; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n"); 
+
+    int firstElement = arr[0];         
+    int lastElement = arr[length - 1]; 
+    printf("First element: %d\n", firstElement);
+    printf("Last element: %d\n", lastElement);
+
+    return 0;
+}
+35.Print an inverted right-angled triangle
+ pattern with n rows.
+code::
+#include <stdio.h>
+
+int main() {
+    int n; 
+    printf("Enter the number of rows: ");
+    scanf("%d", &n);
+    for (int i = n; i >= 1; i--) { 
+        for (int j = 1; j <= i; j++) {
+            printf("* "); 
+        }
+        printf("\n"); 
+    }
+
+    return 0;
+}
